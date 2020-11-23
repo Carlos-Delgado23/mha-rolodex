@@ -11,11 +11,12 @@ class App extends Component {
 
     this.state = {
       characters: [],
+      searchField: '',
     }
   }
 
   componentDidMount() {
-    fetch('https://myheroacademiaapi.com/api/character')
+    fetch('https://myheroacademiaapi.com/api/character?name=' + this.state.searchField)
       .then(response => response.json())
       .then(data =>
         this.setState({
@@ -25,9 +26,16 @@ class App extends Component {
   }
 
   render() {
+    const { characters, searchField } = this.state;
+    const filteredCharacters = characters.filter(character => character.id.toLowerCase().includes(searchField.toLowerCase()));
+
+
     return (
       <div className="App">
-        <CardList characters={this.state.characters} />
+        <input type="search" placeholder="search characters" onChange={e =>
+          this.setState({ searchField: e.target.value })}
+        />
+        <CardList characters={filteredCharacters} />
       </div>
     );
   }
