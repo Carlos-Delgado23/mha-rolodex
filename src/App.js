@@ -17,17 +17,24 @@ class App extends Component {
   componentDidMount() {
     fetch('https://myheroacademiaapi.com/api/character')
       .then(response => response.json())
-      .then(data => this.setState({ characters: data.result }))
+      .then(data => this.setState({
+        characters: data.result,
+      }));
   }
 
   render() {
     return (
       <div className="App">
-        <CardList />
-        {this.state.characters.map(
-          character => (
-            <h1 key={character.id}>{character.name}</h1>
-          ))}
+        <CardList>
+          {this.state.characters.map(
+            character => (
+              <h1 key={character.id}>
+                {character.name == null ? character.id.replace(/_/g, ' ') : character.name
+                }
+              </h1>
+            ))}
+        </CardList>
+
       </div>
     );
   }
