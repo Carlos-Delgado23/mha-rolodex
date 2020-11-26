@@ -1,44 +1,57 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { CardList } from './components/card-list/card-list.component'
 
 import './App.css';
 
 
-class App extends Component {
-  constructor() {
-    super();
+const App = () => {
 
-    this.state = {
-      characters: [],
-      searchField: '',
+  const [apiUrl, setApiUrl] = useState('https://myheroacademiaapi.com/api/character')
+  const [characters, setCharacters] = useState([])
+  const [searchField, setSearchField] = useState('')
+
+  useEffect(() => {
+    async function fetchCharacters() {
+      const resp = await fetch(apiUrl)
+      const data = await resp.json()
+
+      setCharacters(data.result)
     }
+
+    fetchCharacters()
+  }, [apiUrl])
+
+  // componentDidMount() {
+  //   fetch('https://myheroacademiaapi.com/api/character')
+  //     .then(response => response.json())
+  //     .then(data =>
+  //       this.setState({
+  //         characters: data.result,
+  //       })
+  //     );
+  // }
+
+  const handleChange = e => {
+    e.preventDefault()
+    setSearchField(e.target.value)
+    setApiUrl(`https://myheroacademiaapi.com/api/character?name=${searchField}`)
   }
 
-  componentDidMount() {
-    fetch('https://myheroacademiaapi.com/api/character?name=' + this.state.searchField)
-      .then(response => response.json())
-      .then(data =>
-        this.setState({
-          characters: data.result,
-        })
-      );
-  }
-
-  render() {
-    const { characters, searchField } = this.state;
-    const filteredCharacters = characters.filter(character => character.id.toLowerCase().includes(searchField.toLowerCase()));
+  // const filteredCharacters = characters.filter(character => character.id.toLowerCase().includes(searchField.toLowerCase()));
 
 
-    return (
-      <div className="App">
-        <input type="search" placeholder="search characters" onChange={e =>
-          this.setState({ searchField: e.target.value })}
-        />
-        <CardList characters={filteredCharacters} />
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <input
+        type="search"
+        placeholder="search characters"
+        value={searchField}
+        onChange={handleChange}
+      />
+      <CardList characters={characters} />
+    </div>
+  );
 }
 
 export default App;
