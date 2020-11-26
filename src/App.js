@@ -6,47 +6,31 @@ import './App.css';
 
 
 const App = () => {
-
-  const [apiUrl, setApiUrl] = useState('https://myheroacademiaapi.com/api/character')
+  const apiUrl = 'https://myheroacademiaapi.com/api/character'
   const [characters, setCharacters] = useState([])
   const [searchField, setSearchField] = useState('')
 
+  const handleChange = e => {
+    setSearchField(e.target.value)
+  }
+
   useEffect(() => {
     async function fetchCharacters() {
-      const resp = await fetch(apiUrl)
+      const resp = await fetch(searchField < 0 ? apiUrl : apiUrl + `?name=${searchField}`)
       const data = await resp.json()
 
       setCharacters(data.result)
     }
-
     fetchCharacters()
-  }, [apiUrl])
-
-  // componentDidMount() {
-  //   fetch('https://myheroacademiaapi.com/api/character')
-  //     .then(response => response.json())
-  //     .then(data =>
-  //       this.setState({
-  //         characters: data.result,
-  //       })
-  //     );
-  // }
-
-  const handleChange = e => {
-    e.preventDefault()
-    setSearchField(e.target.value)
-    setApiUrl(`https://myheroacademiaapi.com/api/character?name=${searchField}`)
-  }
-
-  // const filteredCharacters = characters.filter(character => character.id.toLowerCase().includes(searchField.toLowerCase()));
+  }, [apiUrl, searchField])
 
 
   return (
     <div className="App">
       <input
-        type="search"
-        placeholder="search characters"
+        type="text"
         value={searchField}
+        placeholder="search characters"
         onChange={handleChange}
       />
       <CardList characters={characters} />
