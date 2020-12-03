@@ -8,7 +8,7 @@ export const SearchBox = ({ placeholder, handleChange, searchField }) => {
         value={searchField}
         placeholder={placeholder}
         onChange={handleChange}
-        className="mb-6 py-2 px-3 border border-yellow-800 rounded-xl shadow-lg shadow-outline outline-none"
+        className="mb-2 py-2 px-3 border border-yellow-800 rounded-xl shadow-lg shadow-outline outline-none"
       />
     </div>
   )
