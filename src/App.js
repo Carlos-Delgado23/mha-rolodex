@@ -4,6 +4,7 @@ import { CardList } from './components/card-list/card-list.component'
 import { SearchBox } from './components/search-box/search-box.component'
 
 import './App.css';
+import mhaLogo from './images/mhaLogo.png'
 
 
 const App = () => {
@@ -28,7 +29,10 @@ const App = () => {
 
   return (
     <div className="App">
-      <SearchBox value={searchField} placeholder="Search Characters" handleChange={handleChange} />
+      <img src={mhaLogo} alt="mha-logo" className="cover-fill mx-auto mt-12" />
+
+      <h1 className="text-xl font-bold uppercase font-mono mt-12">Rolodex Search</h1>
+      <SearchBox value={searchField} placeholder="Character Alias" handleChange={handleChange} />
       <CardList characters={characters} />
     </div>
   );
