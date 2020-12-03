@@ -31,7 +31,7 @@ const App = () => {
     <div className="App">
       <img src={mhaLogo} alt="mha-logo" className="cover-fill mx-auto mt-12" />
 
-      <h1 className="text-xl font-bold uppercase font-mono mt-12">Rolodex Search</h1>
+      <h1 className="text-2xl font-bold uppercase font-mono mt-12">Rolodex Search</h1>
       <SearchBox value={searchField} placeholder="Character Alias" handleChange={handleChange} />
       <CardList characters={characters} />
     </div>
