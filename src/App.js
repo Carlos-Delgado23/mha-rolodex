@@ -16,7 +16,7 @@ const App = () => {
 
   useEffect(() => {
     async function fetchCharacters() {
-      const resp = await fetch(searchField < 0 ? apiUrl : apiUrl + `?name=${searchField}`)
+      const resp = await fetch(searchField < 0 ? apiUrl : apiUrl + `?alias=${searchField}`)
       const data = await resp.json()
 
       setCharacters(data.result)
