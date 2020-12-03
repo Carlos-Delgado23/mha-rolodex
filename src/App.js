@@ -48,11 +48,12 @@ const App = () => {
     <div className="App">
       <img src={mhaLogo} alt="mha-logo" className="cover-fill mx-auto mt-12" />
 
-      <div className="mb-6">
+      <div className="flex flex-col justify-center mb-6">
         <h1 className="text-2xl font-bold uppercase font-mono mt-12">Rolodex Search</h1>
         <SearchBox value={searchField} placeholder="Character Alias" handleChange={handleChange} />
 
-        <div className="inline-flex">
+
+        <div className="inline-flex mx-auto">
           <ButtonPage handleClick={prevPage} title='Previous Page' pageNum={pageNum} />
 
           <ButtonPage handleClick={nextPage} title='Next Page' />
