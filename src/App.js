@@ -1,25 +1,33 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      characters: [],
+    }
+  }
+
+  componentDidMount() {
+    fetch('https://myheroacademiaapi.com/api/character')
+      .then(response => response.json())
+      .then(data => this.setState({ characters: data.result }))
+  }
+
+  render() {
+    return (
+      <div className="App">
+        {
+          this.state.characters.map(
+            character =>
+              <h1 key={character.id}>{character.name}</h1>
+          )
+        }
+      </div>
+    );
+  }
 }
 
 export default App;
