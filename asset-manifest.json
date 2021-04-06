@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/mha-rolodex/static/css/main.cc9320c0.chunk.css",
+    "main.js": "/mha-rolodex/static/js/main.50f57d1b.chunk.js",
+    "main.js.map": "/mha-rolodex/static/js/main.50f57d1b.chunk.js.map",
+    "runtime-main.js": "/mha-rolodex/static/js/runtime-main.b5ad9972.js",
+    "runtime-main.js.map": "/mha-rolodex/static/js/runtime-main.b5ad9972.js.map",
+    "static/js/2.343d52c3.chunk.js": "/mha-rolodex/static/js/2.343d52c3.chunk.js",
+    "static/js/2.343d52c3.chunk.js.map": "/mha-rolodex/static/js/2.343d52c3.chunk.js.map",
+    "static/js/3.c638ef2a.chunk.js": "/mha-rolodex/static/js/3.c638ef2a.chunk.js",
+    "static/js/3.c638ef2a.chunk.js.map": "/mha-rolodex/static/js/3.c638ef2a.chunk.js.map",
+    "index.html": "/mha-rolodex/index.html",
+    "static/css/main.cc9320c0.chunk.css.map": "/mha-rolodex/static/css/main.cc9320c0.chunk.css.map",
+    "static/js/2.343d52c3.chunk.js.LICENSE.txt": "/mha-rolodex/static/js/2.343d52c3.chunk.js.LICENSE.txt",
+    "static/media/mhaLogo.05263888.png": "/mha-rolodex/static/media/mhaLogo.05263888.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b5ad9972.js",
+    "static/js/2.343d52c3.chunk.js",
+    "static/css/main.cc9320c0.chunk.css",
+    "static/js/main.50f57d1b.chunk.js"
+  ]
+}
